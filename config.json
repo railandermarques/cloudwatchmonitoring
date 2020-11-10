@@ -1,7 +1,7 @@
 {
         "agent": {
-                "metrics_collection_interval": 10,
-                "run_as_user": "root"
+                "metrics_collection_interval": 60,
+                "run_as_user": "cwagent"
         },
         "metrics": {
                 "append_dimensions": {
@@ -11,72 +11,24 @@
                         "InstanceType": "${aws:InstanceType}"
                 },
                 "metrics_collected": {
-                        "collectd": {
-                                "metrics_aggregation_interval": 10
-                        },
-                        "cpu": {
-                                "measurement": [
-                                        "cpu_usage_idle",
-                                        "cpu_usage_iowait",
-                                        "cpu_usage_user",
-                                        "cpu_usage_system"
-                                ],
-                                "metrics_collection_interval": 10,
-                                "resources": [
-                                        "*"
-                                ],
-                                "totalcpu": false
-                        },
                         "disk": {
                                 "measurement": [
-                                        "used_percent",
-                                        "inodes_free"
+                                        "used_percent"
                                 ],
-                                "metrics_collection_interval": 10,
-                                "resources": [
-                                        "*"
-                                ]
-                        },
-                        "diskio": {
-                                "measurement": [
-                                        "io_time",
-                                        "write_bytes",
-                                        "read_bytes",
-                                        "writes",
-                                        "reads"
-                                ],
-                                "metrics_collection_interval": 10,
+                                "metrics_collection_interval": 60,
                                 "resources": [
                                         "*"
                                 ]
                         },
                         "mem": {
-                                "measurement":[
+                                "measurement": [
                                         "mem_used_percent",
                                         "mem_free",
                                         "mem_used",
                                         "mem_available",
-                                        "mem_total"										
+                                        "mem_total"
                                 ],
-                                "metrics_collection_interval": 10
-                        },
-                        "netstat": {
-                                "measurement": [
-                                        "tcp_established",
-                                        "tcp_time_wait"
-                                ],
-                                "metrics_collection_interval": 10
-                        },
-                        "statsd": {
-                                "metrics_aggregation_interval": 10,
-                                "metrics_collection_interval": 10,
-                                "service_address": ":8125"
-                        },
-                        "swap": {
-                                "measurement": [
-                                        "swap_used_percent"
-                                ],
-                                "metrics_collection_interval": 10
+                                "metrics_collection_interval": 60
                         }
                 }
         }
